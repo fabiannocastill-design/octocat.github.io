@@ -2,7 +2,7 @@
 
 ## Torneo de Predicciones FIFA World Cup 2026
 
-Bienvenido a la **Polla Mundialista 2026** - El torneo de predicciones del área de Operaciones & Logística.
+Bienvenido a la **Porra Mundialista 2026** - El torneo de predicciones del área de Operaciones & Logística.
 
 ### 📋 Archivo Principal
 
