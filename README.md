@@ -1,4 +1,4 @@
-# 🏆 Polla Mundialista 2026
+# 🏆 Porra Mundialista 2026
 
 ## Torneo de Predicciones FIFA World Cup 2026
 
