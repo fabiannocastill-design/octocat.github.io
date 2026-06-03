@@ -24,7 +24,6 @@
     --gray: #7A90B0;
   }
 
-  /* Google Sites embeds inside iframe — force full width */
   body {
     background: var(--dark);
     color: var(--white);
@@ -645,17 +644,27 @@
 </section>
 
 <!-- ══════ GALLERY SECTION ══════ -->
+<!-- 
+  ✅ CORRECCIÓN APLICADA:
+  Los nombres originales (stadium.jpg / player.jpg) no existen en el repositorio.
+  Los archivos reales en GitHub son:
+    - "ChatGPT Image 1 jun 2026, 08_21_29.png"
+    - "ChatGPT Image 2 jun 2026, 09_46_49.png"
+  RECOMENDACIÓN: Renombra esos archivos en GitHub a "stadium.png" y "player.png"
+  para evitar problemas con espacios y comas en la URL. Luego actualiza los src abajo.
+  Si NO los renombras, usa los nombres codificados como se muestra en el atributo src.
+-->
 <section class="gallery-section">
   <div class="gallery-container">
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="stadium.jpg" alt="Estadio lleno de afición mundialista">
+        <img src="ChatGPT%20Image%201%20jun%202026%2C%2008_21_29.png" alt="Estadio lleno de afición mundialista">
         <div class="gallery-overlay">
           <span class="gallery-label">🏟️ LA PASIÓN</span>
         </div>
       </div>
       <div class="gallery-item">
-        <img src="player.jpg" alt="Jugador en acción - Copa Mundial 2026">
+        <img src="ChatGPT%20Image%202%20jun%202026%2C%2009_46_49.png" alt="Jugador en acción - Copa Mundial 2026">
         <div class="gallery-overlay">
           <span class="gallery-label">⚽ LA TÉCNICA</span>
         </div>
@@ -705,15 +714,15 @@
         <div class="pay-detail">🙋‍♀️ Entregar directamente a:<br><strong style="font-size:1.05rem;">Francia Motta</strong></div>
       </div>
     </div>
-    
-    <!-- QR DE PAGOS -->
+
+    <!-- ✅ CORRECCIÓN APLICADA: src corregido a "imagen (15).png" y etiqueta img bien cerrada -->
     <div class="qr-display">
       <h3 class="qr-title">💳 QR DE PAGOS</h3>
       <div class="qr-image-wrapper">
-        <img src="imagen (15).png" ...>
+        <img src="imagen%20(15).png" alt="Código QR de pagos - Porra Mundialista 2026">
       </div>
     </div>
-    
+
     <div class="alert">
       <div class="alert-icon">📌</div>
       <div class="alert-text"><strong>¡Importante!</strong> Asegúrate de registrar tu pago correctamente y enviar el soporte para validar tu participación. Si no hay soporte o entrega, <strong>la participación no será válida</strong>.</div>
