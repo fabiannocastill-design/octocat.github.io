@@ -189,6 +189,73 @@
     0%,100% { opacity: 0.3; } 50% { opacity: 0.9; }
   }
 
+  /* ─── GALLERY SECTION ─── */
+  .gallery-section {
+    position: relative;
+    padding: 4rem 1.5rem;
+    background: linear-gradient(180deg, var(--dark2), var(--dark));
+  }
+  .gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 12px 48px rgba(0,87,183,0.25);
+    transition: transform 0.4s cubic-bezier(0.34,1.2,0.64,1), box-shadow 0.4s ease;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+  }
+  .gallery-item:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 24px 64px rgba(0,87,183,0.4);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,87,183,0.4), rgba(232,0,45,0.3), rgba(0,122,53,0.2));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+  .gallery-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.8);
+  }
+
   /* ─── SECTIONS ─── */
   section { position: relative; padding: 5rem 1.5rem; }
   .container { max-width: 960px; margin: 0 auto; }
@@ -575,6 +642,26 @@
     </div>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div>scroll</div>
+</section>
+
+<!-- ══════ GALLERY SECTION ══════ -->
+<section class="gallery-section">
+  <div class="gallery-container">
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="stadium.jpg" alt="Estadio lleno de afición mundialista">
+        <div class="gallery-overlay">
+          <span class="gallery-label">🏟️ LA PASIÓN</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="player.jpg" alt="Jugador en acción - Copa Mundial 2026">
+        <div class="gallery-overlay">
+          <span class="gallery-label">⚽ LA TÉCNICA</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
