@@ -796,6 +796,7 @@
         <div class="prize-card gold"><span class="prize-medal">🥇</span><div class="prize-place">Primer lugar</div><div class="prize-pct">70%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card silver"><span class="prize-medal">🥈</span><div class="prize-place">Segundo lugar</div><div class="prize-pct">20%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card bronze"><span class="prize-medal">🥉</span><div class="prize-place">Tercer lugar</div><div class="prize-pct">10%</div><div class="prize-desc">del valor total recaudado</div></div>
+         <div class="prize-card bronze"><span class="prize-medal">🎭</span><div class="prize-place">Ultimo Lugar</div><div class="prize-pct">0%</div><div class="prize-desc">Premio sorpresa. No sabemos si te hará reír o llorar... pero lo recordarás. 😂</div></div>
       </div>
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
       <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir entre:</p>
