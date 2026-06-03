@@ -523,15 +523,15 @@
   <div style="position:relative;z-index:2;">
     <div class="hero-label">⚽ Operaciones &amp; Logística · FIFA World Cup 2026</div>
     <h1 class="hero-title">
-      <span class="blue">POLLA</span><br>
+      <span class="blue">PORRA</span><br>
       <span class="red">MUNDIALISTA</span><br>
       <span>2026</span>
     </h1>
     <p class="hero-subtitle">El Torneo de Predicciones del Área</p>
     <p class="hero-tagline">El Mundial se vive en la cancha, pero la estrategia se define en nuestra área. Demuestra tu visión y tu precisión más allá de los procesos diarios. ¿Eres realmente acertado con tus pronósticos?</p>
     <div class="hero-cta">
-      <a href="#requisitos" class="btn btn-primary">📥 Quiero participar</a>
-      <a href="#comite" class="btn btn-outline">Ver el comité</a>
+      <button onclick="document.getElementById('requisitos').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">📥 Quiero participar</button>
+      <button onclick="document.getElementById('comite').scrollIntoView({behavior:'smooth'})" class="btn btn-outline">Ver el comité</button>
     </div>
     <div class="hero-cta" style="margin-top:1rem;">
       <button onclick="openModal('modal-premiacion')" class="btn btn-info">🏆 Premiaciones</button>
@@ -633,7 +633,7 @@
     <button class="scoring-modal-close-x" onclick="closeScoringModal()">✕</button>
     <div class="scoring-badge">🚨 Próximamente</div>
     <h3 class="scoring-modal-title">¿Cómo se calificarán<br>los resultados?</h3>
-    <p class="scoring-modal-text">El sistema de calificación y asignación de puntos será publicado próximamente. Mantente atento a esta página para conocer los criterios de evaluación, puntajes y tabla de posiciones de la Polla Mundialista 2026.</p>
+    <p class="scoring-modal-text">El sistema de calificación y asignación de puntos será publicado próximamente. Mantente atento a esta página para conocer los criterios de evaluación, puntajes y tabla de posiciones de la Porra Mundialista 2026.</p>
     <button class="scoring-close-btn" onclick="closeScoringModal()">Entendido</button>
   </div>
 </div>
@@ -762,4 +762,3 @@
 </script>
 </body>
 </html>
-
