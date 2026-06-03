@@ -710,7 +710,7 @@
     <div class="qr-display">
       <h3 class="qr-title">💳 QR DE PAGOS</h3>
       <div class="qr-image-wrapper">
-        <img src="image.png" alt="Código QR de pagos - Porra Mundialista 2026">
+        <img src="imagen (15).png" ...>
       </div>
     </div>
     
