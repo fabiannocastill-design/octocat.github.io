@@ -287,6 +287,42 @@
   .alert-text { font-size: 0.9rem; color: rgba(240,246,255,0.8); line-height: 1.65; }
   .alert-text strong { color: var(--white); }
 
+  /* ─── QR SECTION ─── */
+  .qr-display {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .qr-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 1rem;
+  }
+  .qr-image-wrapper {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0,87,183,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .qr-image-wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,87,183,0.25);
+  }
+  .qr-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
   /* ─── COMMITTEE ─── */
   .committee-section { background: var(--dark2); }
   .committee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
@@ -445,16 +481,16 @@
   .wc-modal-stripe { height: 4px; background: linear-gradient(90deg, var(--blue), var(--red), var(--green)); flex-shrink: 0; }
   .wc-modal-header { padding: 1.8rem 2rem 1.2rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-shrink: 0; }
   .wc-modal-header-left { display: flex; flex-direction: column; gap: 0.4rem; }
-  .wc-modal-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; padding: 0.28rem 0.9rem; border-radius: 999px; display: inline-block; }
+  .wc-modal-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; padding: 0.28rem 0.9rem; border-radius: 999px; }
   .badge-gold  { color: #F5C518; background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.35); }
   .badge-green { color: var(--green-light); background: rgba(0,184,76,0.1); border: 1px solid rgba(0,184,76,0.3); }
   .wc-modal-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.4rem); color: var(--white); line-height: 1; letter-spacing: 0.03em; }
-  .wc-modal-close { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; cursor: pointer; color: rgba(240,246,255,0.5); font-size: 0.9rem; transition: background 0.15s, color 0.15s, transform 0.15s; margin-top: 0.2rem; }
+  .wc-modal-close { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; cursor: pointer; color: rgba(240,246,255,0.45); transition: background 0.15s, color 0.15s, transform 0.15s; line-height: 1; }
   .wc-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); transform: rotate(90deg); }
   .wc-modal-body { padding: 0 2rem 2rem; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(0,87,183,0.4) transparent; }
   .wc-modal-body::-webkit-scrollbar { width: 4px; }
   .wc-modal-body::-webkit-scrollbar-thumb { background: rgba(0,87,183,0.4); border-radius: 4px; }
-  .wc-section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; margin: 1.6rem 0 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+  .wc-section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; margin: 1.6rem 0 0.8rem; display: flex; align-items: center; color: rgba(240,246,255,0.6); }
   .wc-section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
 
   /* Prize cards */
@@ -503,13 +539,13 @@
   .phase-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
   .phase-list li { font-size: 0.84rem; color: rgba(240,246,255,0.65); display: flex; align-items: flex-start; gap: 0.55rem; line-height: 1.5; }
   .phase-list li span.icon { flex-shrink: 0; }
-  .scoring-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 999px; margin-top: 0.8rem; }
+  .scoring-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 999px; }
   .pill-blue  { background: rgba(0,87,183,0.18); border: 1px solid rgba(0,87,183,0.4); color: var(--blue-light); }
   .pill-green { background: rgba(0,122,53,0.18); border: 1px solid rgba(0,184,76,0.35); color: var(--green-light); }
   .responsible-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 0.8rem; }
-  .responsible-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; background: rgba(0,122,53,0.12); border: 1px solid rgba(0,184,76,0.28); color: var(--green-light); padding: 0.3rem 0.8rem; border-radius: 999px; }
+  .responsible-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; background: rgba(0,122,53,0.12); border: 1px solid rgba(0,184,76,0.28); color: var(--green-light); padding: 0.4rem 0.75rem; border-radius: 6px; }
   .wc-modal-footer { padding: 1rem 2rem 1.5rem; display: flex; justify-content: center; flex-shrink: 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 0.5rem; }
-  .wc-close-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.7rem 2.4rem; border: 1.5px solid rgba(240,246,255,0.2); border-radius: 999px; background: transparent; color: rgba(240,246,255,0.7); cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s; }
+  .wc-close-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.7rem 2.4rem; border: 1.5px solid rgba(240,246,255,0.25); border-radius: 999px; background: transparent; color: var(--white); cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
   .wc-close-btn:hover { border-color: var(--white); color: var(--white); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
 </style>
 </head>
@@ -528,7 +564,7 @@
       <span>2026</span>
     </h1>
     <p class="hero-subtitle">El Torneo de Predicciones del Área</p>
-    <p class="hero-tagline">El Mundial se vive en la cancha, pero la estrategia se define en nuestra área. Demuestra tu visión y tu precisión más allá de los procesos diarios. ¿Eres realmente acertado con tus pronósticos?</p>
+    <p class="hero-tagline">El Mundial se vive en la cancha, pero la estrategia se define en nuestra área. Demuestra tu visión y tu precisión más allá de los procesos diarios. ¿Eres realmente actor del cambio?</p>
     <div class="hero-cta">
       <button onclick="document.getElementById('requisitos').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">📥 Quiero participar</button>
       <button onclick="document.getElementById('comite').scrollIntoView({behavior:'smooth'})" class="btn btn-outline">Ver el comité</button>
@@ -550,10 +586,10 @@
     <h2 class="section-title">Requisitos para<br>Participar</h2>
     <p class="section-intro">Cuatro pasos simples para asegurar tu cupo en el torneo más épico del área.</p>
     <div class="req-grid">
-      <div class="req-card"><div class="req-num">1</div><div class="req-icon">💰</div><div class="req-label">Paso 1</div><div class="req-title">Inversión</div><p class="req-text">El valor de inscripción es de <span class="req-highlight">$20.000 COP</span>. Una pequeña inversión por una gran oportunidad de ganar.</p></div>
-      <div class="req-card"><div class="req-num">2</div><div class="req-icon">📅</div><div class="req-label">Paso 2</div><div class="req-title">Fecha Límite</div><p class="req-text">Tienes plazo máximo para pagar e inscribirte hasta el <span class="req-highlight">miércoles 10 de junio</span>. ¡No dejes pasar tu cupo!</p></div>
-      <div class="req-card"><div class="req-num">3</div><div class="req-icon">📊</div><div class="req-label">Paso 3</div><div class="req-title">Tu Pronóstico</div><p class="req-text">Descarga y llena el archivo de <span class="req-highlight">Excel adjunto</span> al correo. Deberás predecir el marcador de la primera fase de grupos.</p></div>
-      <div class="req-card"><div class="req-num">4</div><div class="req-icon">📧</div><div class="req-label">Paso 4</div><div class="req-title">Envío</div><p class="req-text">Envía tu Excel diligenciado al correo <span class="req-highlight">sdiaz@colombina.com</span> para registrar tu participación.</p></div>
+      <div class="req-card"><div class="req-num">1</div><div class="req-icon">💰</div><div class="req-label">Paso 1</div><div class="req-title">Inversión</div><p class="req-text">El valor de inscripción es <span class="req-highlight">$20.000</span> COP por participante.</p></div>
+      <div class="req-card"><div class="req-num">2</div><div class="req-icon">📅</div><div class="req-label">Paso 2</div><div class="req-title">Fecha Límite</div><p class="req-text">Tienes plazo máximo hasta <span class="req-highlight">10 de junio de 2026</span> para inscribirse.</p></div>
+      <div class="req-card"><div class="req-num">3</div><div class="req-icon">📊</div><div class="req-label">Paso 3</div><div class="req-title">Tu Pronóstico</div><p class="req-text">Descarga y llena el archivo Excel con tus predicciones del mundial.</p></div>
+      <div class="req-card"><div class="req-num">4</div><div class="req-icon">📧</div><div class="req-label">Paso 4</div><div class="req-title">Envío</div><p class="req-text">Envía tu Excel diligenciado a los responsables del evento.</p></div>
     </div>
   </div>
 </section>
@@ -582,9 +618,18 @@
         <div class="pay-detail">🙋‍♀️ Entregar directamente a:<br><strong style="font-size:1.05rem;">Francia Motta</strong></div>
       </div>
     </div>
+    
+    <!-- QR DE PAGOS -->
+    <div class="qr-display">
+      <h3 class="qr-title">💳 QR DE PAGOS</h3>
+      <div class="qr-image-wrapper">
+        <img src="image.png" alt="Código QR de pagos - Porra Mundialista 2026">
+      </div>
+    </div>
+    
     <div class="alert">
       <div class="alert-icon">📌</div>
-      <div class="alert-text"><strong>¡Importante!</strong> Asegúrate de registrar tu pago correctamente y enviar el soporte para validar tu participación. Si no hay soporte o entrega, <strong>la predicción no entrará en el sistema</strong>.</div>
+      <div class="alert-text"><strong>¡Importante!</strong> Asegúrate de registrar tu pago correctamente y enviar el soporte para validar tu participación. Si no hay soporte o entrega, <strong>la participación no será válida</strong>.</div>
     </div>
   </div>
 </section>
@@ -598,9 +643,9 @@
     <h2 class="section-title">Transparencia<br>Total</h2>
     <p class="section-intro">Para garantizar que esta operación sea tan exacta como nuestros inventarios, contamos con un equipo asignado.</p>
     <div class="committee-grid">
-      <div class="committee-card"><div class="committee-avatar admin">🏃‍♂️</div><div class="committee-role">Administrador</div><div class="committee-name">Sebastián Díaz</div><p class="committee-desc">Administrador del evento y resultados · sdiaz@colombina.com</p></div>
-      <div class="committee-card"><div class="committee-avatar audit">🔍</div><div class="committee-role">Auditora de Resultados</div><div class="committee-name">Laura Xiomara</div><p class="committee-desc">Responsable de la revisión y auditoría de todos los resultados</p></div>
-      <div class="committee-card"><div class="committee-avatar treasury">💰</div><div class="committee-role">Tesorera</div><div class="committee-name">Francia Motta</div><p class="committee-desc">Gestión de pagos en efectivo y validación de inscripciones</p></div>
+      <div class="committee-card"><div class="committee-avatar admin">🏃‍♂️</div><div class="committee-role">Administrador</div><div class="committee-name">Sebastián Díaz</div><p class="committee-desc">Gestiona el torneo, valida los pagos y coordina el evento completo.</p></div>
+      <div class="committee-card"><div class="committee-avatar audit">🔍</div><div class="committee-role">Auditora de Resultados</div><div class="committee-name">Laura Xiomara</div><p class="committee-desc">Verifica los pronósticos y calcula los resultados finales de forma imparcial.</p></div>
+      <div class="committee-card"><div class="committee-avatar treasury">💰</div><div class="committee-role">Tesorera</div><div class="committee-name">Francia Motta</div><p class="committee-desc">Gestiona los fondos recaudados y distribuye los premios según las reglas.</p></div>
     </div>
   </div>
 </section>
@@ -633,7 +678,7 @@
     <button class="scoring-modal-close-x" onclick="closeScoringModal()">✕</button>
     <div class="scoring-badge">🚨 Próximamente</div>
     <h3 class="scoring-modal-title">¿Cómo se calificarán<br>los resultados?</h3>
-    <p class="scoring-modal-text">El sistema de calificación y asignación de puntos será publicado próximamente. Mantente atento a esta página para conocer los criterios de evaluación, puntajes y tabla de posiciones de la Porra Mundialista 2026.</p>
+    <p class="scoring-modal-text">El sistema de calificación y asignación de puntos será publicado próximamente. Mantente atento a esta página para conocer los criterios de evaluación, puntajes y reglas finales.</p>
     <button class="scoring-close-btn" onclick="closeScoringModal()">Entendido</button>
   </div>
 </div>
@@ -655,10 +700,9 @@
         <div class="prize-card gold"><span class="prize-medal">🥇</span><div class="prize-place">Primer lugar</div><div class="prize-pct">70%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card silver"><span class="prize-medal">🥈</span><div class="prize-place">Segundo lugar</div><div class="prize-pct">20%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card bronze"><span class="prize-medal">🥉</span><div class="prize-place">Tercer lugar</div><div class="prize-pct">10%</div><div class="prize-desc">del valor total recaudado</div></div>
-        <div class="prize-card bronze"><span class="prize-medal">🎭</span><div class="prize-place">Ultimo lugar</div><div class="prize-pct">10%</div><div class="prize-desc">Último lugar: Premio sorpresa. No sabemos si te hará reír o llorar... pero lo recordarás. 😂</div></div>
       </div>
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
-      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir una de las siguientes opciones:</p>
+      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir entre:</p>
       <div class="tie-grid">
         <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">Se realizará un sorteo adicional para definir la posición final entre los empatados.</div></div></div>
         <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">El valor del premio correspondiente se divide en partes iguales entre todos los empatados.</div></div></div>
@@ -687,8 +731,8 @@
         <div class="wc-section-label" style="color:#4A90FF;margin-top:0;">📋 Actividades requeridas</div>
         <ul class="phase-list">
           <li><span class="icon">⚽</span><span>Registrar los marcadores de todos los partidos de la fase de grupos.</span></li>
-          <li><span class="icon">🥇</span><span>Pronosticar el equipo que sera Campeon <strong style="color:#F0F6FF">primer lugar</strong> del mundial.</span></li>
-          <li><span class="icon">🥈</span><span>Pronosticar el equipo que sera subcampeon<strong style="color:#F0F6FF">segundo lugar</strong> del mundial.</span></li>
+          <li><span class="icon">🥇</span><span>Pronosticar el equipo que será <strong style="color:#F0F6FF">Campeón</strong> del mundial.</span></li>
+          <li><span class="icon">🥈</span><span>Pronosticar el equipo que será <strong style="color:#F0F6FF">Subcampeón</strong> del mundial.</span></li>
           <li><span class="icon">🥉</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">tercer lugar</strong> del mundial.</span></li>
         </ul>
         <div class="wc-section-label" style="color:#4A90FF;margin-top:1rem;">🎯 Sistema de puntuación</div>
@@ -701,7 +745,7 @@
       <div class="phase-block phase-2">
         <div class="phase-num">02</div>
         <div class="phase-block-head"><div class="phase-icon">🏆</div><div class="phase-title-wrap"><div class="phase-tag">Fase 2</div><div class="phase-name">Fase Eliminatoria</div></div></div>
-        <p class="phase-desc">Una vez finalizada la fase de grupos, recibirás por correo un <strong style="color:#F0F6FF">segundo archivo de Excel</strong> para completar los pronósticos de la etapa eliminatoria. Tus puntos previos se acumulan.</p>
+        <p class="phase-desc">Una vez finalizada la fase de grupos, recibirás por correo un <strong style="color:#F0F6FF">segundo archivo de Excel</strong> para completar los pronósticos de la etapa eliminatoria.</p>
         <div class="wc-section-label" style="color:#00B84C;margin-top:0;">📋 Actividades requeridas</div>
         <ul class="phase-list">
           <li><span class="icon">⚽</span><span>Registrar los marcadores de <strong style="color:#F0F6FF">todos los encuentros</strong> de la fase eliminatoria.</span></li>
