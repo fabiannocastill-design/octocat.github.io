@@ -655,6 +655,7 @@
         <div class="prize-card gold"><span class="prize-medal">🥇</span><div class="prize-place">Primer lugar</div><div class="prize-pct">70%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card silver"><span class="prize-medal">🥈</span><div class="prize-place">Segundo lugar</div><div class="prize-pct">20%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card bronze"><span class="prize-medal">🥉</span><div class="prize-place">Tercer lugar</div><div class="prize-pct">10%</div><div class="prize-desc">del valor total recaudado</div></div>
+        <div class="prize-card bronze"><span class="prize-medal">🎭</span><div class="prize-place">Ultimo lugar</div><div class="prize-pct">10%</div><div class="prize-desc">Último lugar: Premio sorpresa. No sabemos si te hará reír o llorar... pero lo recordarás. 😂</div></div>
       </div>
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
       <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir una de las siguientes opciones:</p>
@@ -686,9 +687,9 @@
         <div class="wc-section-label" style="color:#4A90FF;margin-top:0;">📋 Actividades requeridas</div>
         <ul class="phase-list">
           <li><span class="icon">⚽</span><span>Registrar los marcadores de todos los partidos de la fase de grupos.</span></li>
-          <li><span class="icon">🥇</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">primer lugar</strong> de cada grupo.</span></li>
-          <li><span class="icon">🥈</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">segundo lugar</strong> de cada grupo.</span></li>
-          <li><span class="icon">🥉</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">tercer lugar</strong> de cada grupo.</span></li>
+          <li><span class="icon">🥇</span><span>Pronosticar el equipo que sera Campeon <strong style="color:#F0F6FF">primer lugar</strong> del mundial.</span></li>
+          <li><span class="icon">🥈</span><span>Pronosticar el equipo que sera subcampeon<strong style="color:#F0F6FF">segundo lugar</strong> del mundial.</span></li>
+          <li><span class="icon">🥉</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">tercer lugar</strong> del mundial.</span></li>
         </ul>
         <div class="wc-section-label" style="color:#4A90FF;margin-top:1rem;">🎯 Sistema de puntuación</div>
         <ul class="phase-list">
