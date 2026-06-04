@@ -468,13 +468,131 @@
   }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 640px) {
-    .req-grid { grid-template-columns: 1fr 1fr; }
-    .committee-grid { grid-template-columns: 1fr; }
-    .deadline-box { padding: 1.5rem 2rem; }
+  /* ══════════════════════════════════════════
+     RESPONSIVE — MOBILE · TABLET · DESKTOP
+     ══════════════════════════════════════════ */
+
+  /* ── TABLET (≤ 900px) ── */
+  @media (max-width: 900px) {
+    section { padding: 4rem 1.5rem; }
+    .sc-bonus-grid { grid-template-columns: 1fr 1fr; }
   }
-  @media (max-width: 380px) { .req-grid { grid-template-columns: 1fr; } }
+
+  /* ── TABLET PEQUEÑA / MÓVIL GRANDE (≤ 768px) ── */
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero { padding: 5rem 1.2rem 3rem; min-height: 100svh; }
+    .hero-cta { gap: 0.7rem; }
+
+    /* Botones: apilados y ancho completo en hero */
+    .hero .hero-cta .btn { width: 100%; text-align: center; }
+
+    /* Galería: una columna */
+    .gallery-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+
+    /* Pagos: una columna */
+    .pay-grid { grid-template-columns: 1fr; }
+
+    /* Requisitos */
+    .req-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Comité: una columna */
+    .committee-grid { grid-template-columns: 1fr; }
+
+    /* Footer deadline */
+    .deadline-box { padding: 1.5rem 1.5rem; width: 100%; }
+
+    /* Footer CTAs apilados */
+    .footer-cta { flex-direction: column; align-items: center; }
+    .footer-cta .btn,
+    .footer-cta a.btn { width: 100%; max-width: 420px; text-align: center; }
+
+    /* Modales: padding reducido */
+    .wc-modal-header { padding: 1.4rem 1.3rem 0.8rem; }
+    .wc-modal-body   { padding: 0 1.3rem 1.5rem; }
+    .wc-modal-footer { padding: 0.8rem 1.3rem 1.2rem; }
+    .sc-header { padding: 1.3rem 1.3rem 0.8rem; }
+    .sc-body   { padding: 0 1.3rem 1.2rem; }
+    .sc-footer { padding: 0.8rem 1.3rem 1.2rem; }
+
+    /* Modal scoring bonus: 1 columna */
+    .sc-bonus-grid { grid-template-columns: 1fr; }
+    .sc-bonus-card[style*="span 2"] { grid-column: span 1; }
+  }
+
+  /* ── MÓVIL (≤ 640px) ── */
+  @media (max-width: 640px) {
+    /* Secciones */
+    section { padding: 3rem 1rem; }
+
+    /* Títulos de sección */
+    .section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+
+    /* Requisitos: 2 columnas pequeñas */
+    .req-grid { grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .req-card { padding: 1.2rem 1rem; }
+
+    /* Comité */
+    .committee-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+
+    /* Deadline */
+    .deadline-box { padding: 1.2rem 1rem; }
+    .deadline-date { font-size: clamp(2rem, 8vw, 3rem); }
+
+    /* QR */
+    .qr-image-wrapper { padding: 1.2rem; }
+
+    /* Tabla scoring */
+    .sc-table th, .sc-table td { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+
+    /* Ejemplos scoring */
+    .sc-example { padding: 0.7rem 0.85rem; }
+
+    /* Colombia box */
+    .sc-colombia { padding: 0.9rem 1rem; }
+
+    /* Premios modal: columna única */
+    .prize-grid { grid-template-columns: 1fr; }
+    .tie-grid   { grid-template-columns: 1fr; }
+
+    /* Fases modal */
+    .responsible-row { flex-direction: column; gap: 0.5rem; }
+  }
+
+  /* ── MÓVIL PEQUEÑO (≤ 480px) ── */
+  @media (max-width: 480px) {
+    /* Requisitos: 1 columna */
+    .req-grid { grid-template-columns: 1fr; }
+
+    /* Hero label texto más corto */
+    .hero-label { font-size: 0.72rem; letter-spacing: 0.2em; padding: 0.3rem 0.9rem; }
+
+    /* Botones más pequeños */
+    .btn { font-size: 0.9rem; padding: 0.75rem 1.5rem; }
+
+    /* Modal ancho total */
+    .wc-modal { padding: 0.6rem; }
+    .wc-modal-box { border-radius: 18px; max-height: 96vh; }
+    .scoring-modal-content { border-radius: 18px; max-height: 96vh; }
+
+    /* Títulos modales */
+    .wc-modal-title { font-size: 1.7rem; }
+    .sc-title        { font-size: 1.7rem; }
+
+    /* Scroll hint oculto en móvil muy pequeño */
+    .scroll-hint { display: none; }
+
+    /* Scoring summary */
+    .sc-summary-row { font-size: 0.78rem; }
+    .sc-summary-row .sr-pts { font-size: 0.95rem; }
+  }
+
+  /* ── PANTALLAS MUY ANCHAS (≥ 1400px) ── */
+  @media (min-width: 1400px) {
+    .container { max-width: 1100px; }
+    .gallery-container { max-width: 1300px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
 
   /* ─── SCORING MODAL ─── */
   /* ─── SCORING MODAL (REGLAMENTO) ─── */
@@ -808,8 +926,7 @@
     <div class="trophy-line"><span class="trophy-emoji">🏆</span></div>
     <h2 class="footer-title">¿Estás listo para demostrar<br>quién es el verdadero estratega?</h2>
     <p class="footer-sub">Descarga tu Excel, asegura tu cupo con Francia y <strong style="color:var(--blue-light)">¡que empiece el juego!</strong></p>
-    <div class="hero-cta">
-      <a href="mailto:sdiazl@colombina.com,lmontoya@colombina.com" class="btn btn-primary">📤 Cargar archivo de pronósticos (Excel)</a>
+    <div class="hero-cta footer-cta">
       <button onclick="openScoringModal()" class="btn btn-scoring">📋 ¿Cómo se calificarán los resultados?</button>
     </div>
     <div class="scoring-teaser">⚡ Reglamento oficial publicado — ¡ya puedes consultarlo!</div>
@@ -979,10 +1096,10 @@
         <div class="prize-card bronze"><span class="prize-medal">🥉</span><div class="prize-place">Tercer lugar</div><div class="prize-pct">10%</div><div class="prize-desc">del valor total recaudado</div></div>
       </div>
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
-      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Se realizará un sorteo para definir a un único ganador dentro de la posición que se encuentra empatada.</p>
+      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir entre:</p>
       <div class="tie-grid">
-        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">.</div></div></div>
-        <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">.</div></div></div>
+        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">Se realizará un sorteo adicional para definir la posición final entre los empatados.</div></div></div>
+        <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">El valor del premio correspondiente se divide en partes iguales entre todos los empatados.</div></div></div>
       </div>
     </div>
     <div class="wc-modal-footer"><button class="wc-close-btn" onclick="closeModal('modal-premiacion')">Cerrar</button></div>
@@ -1015,7 +1132,6 @@
         <div class="wc-section-label" style="color:#4A90FF;margin-top:1rem;">🎯 Sistema de puntuación</div>
         <ul class="phase-list">
           <li><span class="icon">📈</span><span>Se asignan puntos según la precisión de cada pronóstico registrado.</span></li>
-          <li><span class="icon">📈</span><span>En caso de empate entre equipos, selecciona manualmente las posiciones para definir los clasificados a los dieciseisavos de final. Las opciones aparecerán automáticamente en el archivo de Excel cuando sean necesarias.</span></li>
           <li><span class="icon">✅</span><span>A mayor exactitud en los resultados, <strong style="color:#F0F6FF">mayor puntuación obtenida</strong>.</span></li>
         </ul>
         <span class="scoring-pill pill-blue">⭐ Los puntos se acumulan en la Fase 2</span>
@@ -1085,3 +1201,6 @@
 </script>
 </body>
 </html>
+   
+   
+   
