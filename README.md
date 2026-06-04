@@ -477,52 +477,101 @@
   @media (max-width: 380px) { .req-grid { grid-template-columns: 1fr; } }
 
   /* ─── SCORING MODAL ─── */
+  /* ─── SCORING MODAL (REGLAMENTO) ─── */
   .scoring-modal {
     display: none; position: fixed; inset: 0;
-    background: rgba(3,8,16,0.88); backdrop-filter: blur(10px);
-    z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;
+    background: rgba(3,8,16,0.92); backdrop-filter: blur(12px);
+    z-index: 3000; align-items: center; justify-content: center;
+    padding: 1.2rem; overflow-y: auto;
   }
-  .scoring-modal.active { display: flex; animation: fadeIn 0.22s ease both; }
+  .scoring-modal.active { display: flex; animation: fadeIn 0.25s ease both; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .scoring-modal-content {
     background: var(--dark3);
-    border: 1px solid rgba(0,87,183,0.35); border-radius: 24px;
-    padding: 3rem 2.2rem 2.2rem; max-width: 520px; width: 100%;
-    position: relative; box-shadow: 0 0 80px rgba(0,87,183,0.25), 0 30px 60px rgba(0,0,0,0.7);
-    text-align: center; animation: scaleIn 0.28s ease both;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 24px;
+    max-width: 660px; width: 100%;
+    position: relative; box-shadow: 0 0 100px rgba(0,87,183,0.22), 0 40px 80px rgba(0,0,0,0.8);
+    animation: scaleIn 0.3s cubic-bezier(0.34,1.2,0.64,1) both;
+    overflow: hidden; max-height: 92vh;
+    display: flex; flex-direction: column;
   }
-  @keyframes scaleIn { from { opacity: 0; transform: scale(0.92) translateY(18px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-  .scoring-modal-content::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--red), var(--green));
-    border-radius: 24px 24px 0 0;
-  }
-  .scoring-badge {
-    display: inline-block;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem;
-    font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase;
-    color: #F5A623; background: rgba(245,166,35,0.1);
-    border: 1px solid rgba(245,166,35,0.35); padding: 0.32rem 1rem;
-    border-radius: 999px; margin-bottom: 1.3rem;
-  }
-  .scoring-modal-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 5vw, 2.4rem); color: var(--white); margin-bottom: 1.3rem; line-height: 1.05; }
-  .scoring-modal-text { font-size: 1rem; color: rgba(240,246,255,0.72); line-height: 1.78; margin-bottom: 2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
-  .scoring-close-btn {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 0.75rem 2.2rem; border: 1.5px solid rgba(240,246,255,0.25);
-    border-radius: 999px; background: transparent; color: var(--white);
-    cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.15s;
-  }
-  .scoring-close-btn:hover { border-color: var(--white); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
-  .scoring-modal-close-x {
-    position: absolute; top: 1rem; right: 1rem;
-    width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 50%; cursor: pointer; color: rgba(240,246,255,0.45); font-size: 0.85rem;
-    transition: background 0.15s, color 0.15s; line-height: 1;
-  }
-  .scoring-modal-close-x:hover { background: rgba(255,255,255,0.12); color: var(--white); }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.9) translateY(28px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  .scoring-modal-content.closing { animation: scaleOut 0.22s ease both; }
+  @keyframes scaleOut { from { opacity:1; transform: scale(1); } to { opacity:0; transform: scale(0.93) translateY(16px); } }
+
+  /* Stripe top */
+  .sc-stripe { height: 4px; background: linear-gradient(90deg, var(--blue), var(--red), var(--green)); flex-shrink: 0; }
+
+  /* Header */
+  .sc-header { padding: 1.6rem 2rem 1rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-shrink: 0; }
+  .sc-header-left { display: flex; flex-direction: column; gap: 0.4rem; }
+  .sc-badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; padding: 0.28rem 0.9rem; border-radius: 999px; color: #F5A623; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.35); width: fit-content; }
+  .sc-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.4rem); color: var(--white); line-height: 1; letter-spacing: 0.03em; }
+  .sc-close-x { width: 36px; height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; cursor: pointer; color: rgba(240,246,255,0.45); transition: background 0.15s, color 0.15s, transform 0.15s; line-height: 1; font-size: 0.85rem; }
+  .sc-close-x:hover { background: rgba(255,255,255,0.12); color: var(--white); transform: rotate(90deg); }
+
+  /* Body scrollable */
+  .sc-body { padding: 0 2rem 1.5rem; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(0,87,183,0.4) transparent; }
+  .sc-body::-webkit-scrollbar { width: 4px; }
+  .sc-body::-webkit-scrollbar-thumb { background: rgba(0,87,183,0.4); border-radius: 4px; }
+
+  /* Section labels */
+  .sc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+  .sc-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+
+  /* Rule principal */
+  .sc-rule-box { background: rgba(0,87,183,0.1); border: 1px solid rgba(0,87,183,0.3); border-left: 3px solid var(--blue); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: rgba(240,246,255,0.85); line-height: 1.65; }
+  .sc-rule-box strong { color: var(--white); }
+
+  /* Ejemplos */
+  .sc-examples { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+  .sc-example { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 0.85rem 1rem; font-size: 0.82rem; line-height: 1.6; color: rgba(240,246,255,0.65); }
+  .sc-example .ex-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; color: rgba(240,246,255,0.5); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .sc-example .match { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+  .sc-example .ex-ok  { color: var(--green-light); }
+  .sc-example .ex-no  { color: rgba(232,0,45,0.75); }
+  .sc-example .ex-total { font-weight: 700; color: #F5A623; margin-top: 0.3rem; }
+
+  /* Tabla de puntos */
+  .sc-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.85rem; }
+  .sc-table th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue-light); padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(0,87,183,0.3); }
+  .sc-table td { padding: 0.45rem 0.8rem; color: rgba(240,246,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .sc-table tr:last-child td { border-bottom: none; }
+  .sc-table td:last-child { color: #F5A623; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; }
+
+  /* Bonus grid */
+  .sc-bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
+  @media (max-width: 480px) { .sc-bonus-grid { grid-template-columns: 1fr; } }
+  .sc-bonus-card { background: rgba(0,87,183,0.07); border: 1px solid rgba(0,87,183,0.2); border-radius: 12px; padding: 0.9rem 1rem; display: flex; align-items: flex-start; gap: 0.65rem; }
+  .sc-bonus-card .bc-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .sc-bonus-card .bc-text { font-size: 0.8rem; color: rgba(240,246,255,0.6); line-height: 1.5; }
+  .sc-bonus-card .bc-pts { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #F5A623; line-height: 1; }
+  .sc-bonus-card .bc-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; color: rgba(240,246,255,0.75); margin-bottom: 0.15rem; }
+
+  /* Colombia especial */
+  .sc-colombia { background: linear-gradient(135deg, rgba(252,209,22,0.08), rgba(0,87,183,0.08), rgba(206,43,55,0.06)); border: 1px solid rgba(252,209,22,0.25); border-radius: 14px; padding: 1.1rem 1.2rem; margin-bottom: 1rem; }
+  .sc-colombia-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+  .sc-colombia-head span { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #FCD116; letter-spacing: 0.05em; }
+  .sc-colombia-rule { font-size: 0.85rem; color: rgba(240,246,255,0.7); line-height: 1.65; }
+  .sc-colombia-rule strong { color: #FCD116; }
+
+  /* Resumen final */
+  .sc-summary { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; margin-bottom: 0.5rem; }
+  .sc-summary-row { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 1rem; font-size: 0.85rem; color: rgba(240,246,255,0.65); border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .sc-summary-row:last-child { border-bottom: none; }
+  .sc-summary-row .sr-pts { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #F5A623; }
+
+  /* Footer */
+  .sc-footer { padding: 1rem 2rem 1.5rem; display: flex; justify-content: center; flex-shrink: 0; border-top: 1px solid rgba(255,255,255,0.05); }
+  .sc-close-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.7rem 2.4rem; border: 1.5px solid rgba(240,246,255,0.25); border-radius: 999px; background: transparent; color: var(--white); cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.15s; }
+  .sc-close-btn:hover { border-color: var(--white); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+
+  /* Compat aliases (por si algo del HTML antiguo los referencia) */
+  .scoring-badge { display: none; }
+  .scoring-modal-title { display: none; }
+  .scoring-modal-text { display: none; }
+  .scoring-close-btn { display: none; }
+  .scoring-modal-close-x { display: none; }
 
   /* ─── WC MODALS (Premiaciones / Fases) ─── */
   .wc-modal {
@@ -763,19 +812,151 @@
       <a href="mailto:sdiazl@colombina.com,lmontoya@colombina.com" class="btn btn-primary">📤 Cargar archivo de pronósticos (Excel)</a>
       <button onclick="openScoringModal()" class="btn btn-scoring">📋 ¿Cómo se calificarán los resultados?</button>
     </div>
-    <div class="scoring-teaser">Próximamente: reglas de puntuación y sistema de clasificación</div>
+    <div class="scoring-teaser">⚡ Reglamento oficial publicado — ¡ya puedes consultarlo!</div>
     <p class="footer-committee">© 2026 · Comité Organizador Mundialista · Operaciones &amp; Logística</p>
   </div>
 </section>
 
-<!-- ══════ MODAL: SCORING ══════ -->
+<!-- ══════ MODAL: SCORING / REGLAMENTO ══════ -->
 <div id="scoring-modal" class="scoring-modal" onclick="if(event.target===this)closeScoringModal()">
   <div class="scoring-modal-content">
-    <button class="scoring-modal-close-x" onclick="closeScoringModal()">✕</button>
-    <div class="scoring-badge">🚨 Próximamente</div>
-    <h3 class="scoring-modal-title">¿Cómo se calificarán<br>los resultados?</h3>
-    <p class="scoring-modal-text">El sistema de calificación y asignación de puntos será publicado próximamente. Mantente atento a esta página para conocer los criterios de evaluación, puntajes y reglas finales.</p>
-    <button class="scoring-close-btn" onclick="closeScoringModal()">Entendido</button>
+
+    <div class="sc-stripe"></div>
+
+    <!-- Header -->
+    <div class="sc-header">
+      <div class="sc-header-left">
+        <span class="sc-badge">📋 Reglamento Oficial</span>
+        <h3 class="sc-title">Sistema de<br>Puntuación</h3>
+      </div>
+      <button class="sc-close-x" onclick="closeScoringModal()">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div class="sc-body">
+
+      <!-- REGLA PRINCIPAL -->
+      <div class="sc-label" style="color:var(--blue-light);">🎯 Regla principal</div>
+      <div class="sc-rule-box">
+        Cada <strong>gol acertado</strong> en el marcador final equivale a <strong>1 punto</strong>.<br>
+        No es obligatorio acertar el resultado completo para sumar puntos.
+      </div>
+
+      <!-- EJEMPLOS MARCADORES -->
+      <div class="sc-label" style="color:rgba(240,246,255,0.5);">📌 Ejemplos de puntuación</div>
+      <div class="sc-examples">
+        <div class="sc-example">
+          <div class="ex-title">Ej. 1 · Marcador exacto</div>
+          <div class="match">🇨🇴 Colombia 2 – 0 Brasil 🇧🇷</div>
+          <div class="ex-ok">✅ 2 goles Colombia = 2 pts &nbsp;|&nbsp; ✅ 0 goles Brasil = 1 pt</div>
+          <div class="ex-total">Total: 3 puntos</div>
+        </div>
+        <div class="sc-example">
+          <div class="ex-title">Ej. 2 · Solo acertó un equipo</div>
+          <div class="match">🇨🇴 Colombia 2 – 0 Brasil 🇧🇷 &nbsp;·&nbsp; Real: 2–1</div>
+          <div class="ex-ok">✅ 2 goles Colombia = 2 pts</div>
+          <div class="ex-no">❌ No acertó goles de Brasil</div>
+          <div class="ex-total">Total: 2 puntos</div>
+        </div>
+        <div class="sc-example">
+          <div class="ex-title">Ej. 3 · Sin aciertos</div>
+          <div class="match">Pronóstico 1–0 &nbsp;·&nbsp; Real: 2–3</div>
+          <div class="ex-no">❌ No acertó ningún marcador</div>
+          <div class="ex-total">Total: 0 puntos</div>
+        </div>
+      </div>
+
+      <!-- TABLA RÁPIDA -->
+      <div class="sc-label" style="color:var(--blue-light);">📊 Tabla rápida</div>
+      <table class="sc-table">
+        <thead><tr><th>Goles acertados</th><th>Puntos</th></tr></thead>
+        <tbody>
+          <tr><td>0 goles</td><td>0</td></tr>
+          <tr><td>1 gol</td><td>1</td></tr>
+          <tr><td>2 goles</td><td>2</td></tr>
+          <tr><td>3 goles</td><td>3</td></tr>
+          <tr><td>4 goles</td><td>4</td></tr>
+          <tr><td>5+ goles</td><td>5+</td></tr>
+        </tbody>
+      </table>
+
+      <!-- BONUS -->
+      <div class="sc-label" style="color:#F5A623;">⭐ Puntos Bonus</div>
+      <div class="sc-bonus-grid">
+        <div class="sc-bonus-card">
+          <div class="bc-icon">🏅</div>
+          <div>
+            <div class="bc-label">Acertar ganador / empate</div>
+            <div class="bc-pts">+2</div>
+            <div class="bc-text">Por cada partido donde aciertes quién gana o si termina en empate.</div>
+          </div>
+        </div>
+        <div class="sc-bonus-card">
+          <div class="bc-icon">⚽</div>
+          <div>
+            <div class="bc-label">Clasificado a 1/16 correcto</div>
+            <div class="bc-pts">+2</div>
+            <div class="bc-text">Por cada selección que pronosticaste clasificar a los dieciseisavos.</div>
+          </div>
+        </div>
+        <div class="sc-bonus-card">
+          <div class="bc-icon">🏆</div>
+          <div>
+            <div class="bc-label">Acertar Campeón</div>
+            <div class="bc-pts">+5</div>
+            <div class="bc-text">Si aciertas el equipo campeón del mundo.</div>
+          </div>
+        </div>
+        <div class="sc-bonus-card">
+          <div class="bc-icon">🥈</div>
+          <div>
+            <div class="bc-label">Acertar Subcampeón</div>
+            <div class="bc-pts">+3</div>
+            <div class="bc-text">Si aciertas el equipo finalista perdedor.</div>
+          </div>
+        </div>
+        <div class="sc-bonus-card" style="grid-column: span 2;">
+          <div class="bc-icon">🥉</div>
+          <div>
+            <div class="bc-label">Acertar Tercer Lugar</div>
+            <div class="bc-pts">+2</div>
+            <div class="bc-text">Si aciertas el equipo que obtiene el tercer puesto del torneo.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLOMBIA ESPECIAL -->
+      <div class="sc-label" style="color:#FCD116;">🇨🇴 Bonus especial – Partidos de Colombia</div>
+      <div class="sc-colombia">
+        <div class="sc-colombia-head">
+          <span>⚽ Valor especial de goles</span>
+        </div>
+        <p class="sc-colombia-rule">
+          En los partidos donde participe Colombia, cada gol acertado vale <strong>3 puntos</strong> en lugar de 1.<br><br>
+          <strong>Ejemplo:</strong> Colombia 2–1 Japón acertado exactamente →<br>
+          ✅ 2 goles Colombia = 6 pts &nbsp;|&nbsp; ✅ 1 gol Japón = 3 pts &nbsp;= <strong style="color:#FCD116;">9 puntos</strong><br><br>
+          El bono de <strong>+2 por acertar ganador/empate también aplica</strong> en estos partidos.
+        </p>
+      </div>
+
+      <!-- RESUMEN GENERAL -->
+      <div class="sc-label" style="color:rgba(240,246,255,0.5);">📋 Resumen de bonificaciones</div>
+      <div class="sc-summary">
+        <div class="sc-summary-row"><span>Acertar ganador del partido</span><span class="sr-pts">+2</span></div>
+        <div class="sc-summary-row"><span>Acertar empate del partido</span><span class="sr-pts">+2</span></div>
+        <div class="sc-summary-row"><span>Cada clasificado correcto a 1/16</span><span class="sr-pts">+2</span></div>
+        <div class="sc-summary-row"><span>Acertar campeón del Mundial</span><span class="sr-pts">+5</span></div>
+        <div class="sc-summary-row"><span>Acertar subcampeón</span><span class="sr-pts">+3</span></div>
+        <div class="sc-summary-row"><span>Acertar tercer lugar</span><span class="sr-pts">+2</span></div>
+        <div class="sc-summary-row" style="background:rgba(252,209,22,0.05);"><span>🇨🇴 Gol acertado en partido de Colombia</span><span class="sr-pts" style="color:#FCD116;">×3</span></div>
+      </div>
+
+    </div><!-- /sc-body -->
+
+    <div class="sc-footer">
+      <button class="sc-close-btn" onclick="closeScoringModal()">Cerrar</button>
+    </div>
+
   </div>
 </div>
 
@@ -796,13 +977,12 @@
         <div class="prize-card gold"><span class="prize-medal">🥇</span><div class="prize-place">Primer lugar</div><div class="prize-pct">70%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card silver"><span class="prize-medal">🥈</span><div class="prize-place">Segundo lugar</div><div class="prize-pct">20%</div><div class="prize-desc">del valor total recaudado</div></div>
         <div class="prize-card bronze"><span class="prize-medal">🥉</span><div class="prize-place">Tercer lugar</div><div class="prize-pct">10%</div><div class="prize-desc">del valor total recaudado</div></div>
-         <div class="prize-card bronze"><span class="prize-medal">🎭</span><div class="prize-place">Ultimo Lugar</div><div class="prize-pct">0%</div><div class="prize-desc">Premio sorpresa. No sabemos si te hará reír o llorar... pero lo recordarás. 😂</div></div>
       </div>
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
-      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir entre:</p>
+      <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Se realizará un sorteo para definir a un único ganador dentro de la posición que se encuentra empatada.</p>
       <div class="tie-grid">
-        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">Se realizará un sorteo adicional para definir la posición final entre los empatados.</div></div></div>
-        <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">El valor del premio correspondiente se divide en partes iguales entre todos los empatados.</div></div></div>
+        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">.</div></div></div>
+        <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">.</div></div></div>
       </div>
     </div>
     <div class="wc-modal-footer"><button class="wc-close-btn" onclick="closeModal('modal-premiacion')">Cerrar</button></div>
@@ -835,6 +1015,7 @@
         <div class="wc-section-label" style="color:#4A90FF;margin-top:1rem;">🎯 Sistema de puntuación</div>
         <ul class="phase-list">
           <li><span class="icon">📈</span><span>Se asignan puntos según la precisión de cada pronóstico registrado.</span></li>
+          <li><span class="icon">📈</span><span>En caso de empate entre equipos, selecciona manualmente las posiciones para definir los clasificados a los dieciseisavos de final. Las opciones aparecerán automáticamente en el archivo de Excel cuando sean necesarias.</span></li>
           <li><span class="icon">✅</span><span>A mayor exactitud en los resultados, <strong style="color:#F0F6FF">mayor puntuación obtenida</strong>.</span></li>
         </ul>
         <span class="scoring-pill pill-blue">⭐ Los puntos se acumulan en la Fase 2</span>
