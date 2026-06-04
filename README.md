@@ -353,41 +353,105 @@
   .alert-text { font-size: 0.9rem; color: rgba(240,246,255,0.8); line-height: 1.65; }
   .alert-text strong { color: var(--white); }
 
-  /* ─── QR SECTION ─── */
-  .qr-display {
-    margin-top: 3rem;
+  /* ─── BOTÓN QR ─── */
+  .qr-btn-wrap {
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
   }
-  .qr-title {
+  .btn-qr {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--blue-light);
-    margin-bottom: 1rem;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: linear-gradient(135deg, rgba(0,184,76,0.18), rgba(0,87,183,0.12));
+    color: var(--white);
+    border: 1.5px solid rgba(0,184,76,0.5);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    box-shadow: 0 4px 20px rgba(0,184,76,0.15);
   }
-  .qr-image-wrapper {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0,87,183,0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .btn-qr:hover {
+    background: linear-gradient(135deg, rgba(0,184,76,0.32), rgba(0,87,183,0.22));
+    border-color: var(--green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,184,76,0.3);
   }
-  .qr-image-wrapper:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0,87,183,0.25);
+  .btn-qr .qr-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green-light);
+    animation: pulse 1.8s ease infinite;
+    flex-shrink: 0;
   }
-  .qr-image-wrapper img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
+
+  /* ─── MODAL QR ─── */
+  .qr-modal {
+    display: none; position: fixed; inset: 0;
+    background: rgba(3,8,16,0.92); backdrop-filter: blur(14px);
+    z-index: 4000; align-items: center; justify-content: center;
+    padding: 1.5rem;
   }
+  .qr-modal.active { display: flex; animation: fadeIn 0.22s ease both; }
+  .qr-modal-box {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px; max-width: 380px; width: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(0,184,76,0.2), 0 30px 60px rgba(0,0,0,0.8);
+    animation: scaleIn 0.3s cubic-bezier(0.34,1.2,0.64,1) both;
+  }
+  .qr-modal-box.closing { animation: scaleOut 0.2s ease both; }
+  .qr-modal-stripe { height: 4px; background: linear-gradient(90deg, var(--green), var(--blue), var(--red)); }
+  .qr-modal-header {
+    padding: 1.4rem 1.6rem 0.8rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .qr-modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; letter-spacing: 0.04em; color: var(--white);
+  }
+  .qr-modal-close {
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%; cursor: pointer; color: rgba(240,246,255,0.45);
+    transition: background 0.15s, color 0.15s, transform 0.15s;
+    font-size: 0.85rem;
+  }
+  .qr-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--white); transform: rotate(90deg); }
+  .qr-modal-body {
+    padding: 0.5rem 1.6rem 1.6rem;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .qr-img-frame {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    width: 100%; max-width: 260px;
+  }
+  .qr-img-frame img {
+    width: 100%; height: auto; display: block; border-radius: 8px;
+  }
+  .qr-modal-hint {
+    font-size: 0.82rem; color: rgba(240,246,255,0.5);
+    text-align: center; line-height: 1.55;
+  }
+  .qr-modal-hint strong { color: var(--green-light); }
+  .qr-modal-footer {
+    padding: 0.8rem 1.6rem 1.4rem;
+    display: flex; justify-content: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .qr-close-btn {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.65rem 2rem; border: 1.5px solid rgba(240,246,255,0.25);
+    border-radius: 999px; background: transparent; color: var(--white);
+    cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  }
+  .qr-close-btn:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
 
   /* ─── COMMITTEE ─── */
   .committee-section { background: var(--dark2); }
@@ -574,10 +638,15 @@
     .wc-modal { padding: 0.6rem; }
     .wc-modal-box { border-radius: 18px; max-height: 96vh; }
     .scoring-modal-content { border-radius: 18px; max-height: 96vh; }
+    .qr-modal { padding: 0.6rem; }
+    .qr-modal-box { border-radius: 18px; max-width: 100%; }
 
     /* Títulos modales */
     .wc-modal-title { font-size: 1.7rem; }
     .sc-title        { font-size: 1.7rem; }
+
+    /* Tabla en móvil: padding reducido */
+    .sc-table th, .sc-table td { padding: 0.5rem 0.7rem; font-size: 0.8rem; }
 
     /* Scroll hint oculto en móvil muy pequeño */
     .scroll-hint { display: none; }
@@ -650,12 +719,32 @@
   .sc-example .ex-no  { color: rgba(232,0,45,0.75); }
   .sc-example .ex-total { font-weight: 700; color: #F5A623; margin-top: 0.3rem; }
 
-  /* Tabla de puntos */
-  .sc-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.85rem; }
-  .sc-table th { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue-light); padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid rgba(0,87,183,0.3); }
-  .sc-table td { padding: 0.45rem 0.8rem; color: rgba(240,246,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  /* Tabla de puntos — fondo sólido para visibilidad en GitHub Pages */
+  .sc-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 1rem;
+    font-size: 0.85rem;
+    background: #0D1826;
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(0,87,183,0.35);
+  }
+  .sc-table thead { background: #0A1020; }
+  .sc-table th {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem;
+    font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    color: #4A90FF; padding: 0.65rem 1rem; text-align: left;
+    border-bottom: 2px solid rgba(0,87,183,0.4);
+  }
+  .sc-table td {
+    padding: 0.5rem 1rem; color: #C8D8F0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #0D1826;
+  }
   .sc-table tr:last-child td { border-bottom: none; }
-  .sc-table td:last-child { color: #F5A623; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; }
+  .sc-table tr:nth-child(even) td { background: #101E30; }
+  .sc-table td:last-child {
+    color: #F5A623; font-weight: 700;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem;
+  }
 
   /* Bonus grid */
   .sc-bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 1rem; }
@@ -882,12 +971,12 @@
       </div>
     </div>
 
-    <!-- ✅ CORRECCIÓN APLICADA: src corregido a "imagen (15).png" y etiqueta img bien cerrada -->
-    <div class="qr-display">
-      <h3 class="qr-title">💳 QR DE PAGOS</h3>
-      <div class="qr-image-wrapper">
-        <img src="imagen%20(15).png" alt="Código QR de pagos - Porra Mundialista 2026">
-      </div>
+    <!-- ✅ QR: botón que abre modal -->
+    <div class="qr-btn-wrap">
+      <button class="btn-qr" onclick="openQrModal()">
+        <span class="qr-dot"></span>
+        📲 Ver QR de pago
+      </button>
     </div>
 
     <div class="alert">
@@ -933,6 +1022,30 @@
     <p class="footer-committee">© 2026 · Comité Organizador Mundialista · Operaciones &amp; Logística</p>
   </div>
 </section>
+
+<!-- ══════ MODAL: QR DE PAGO ══════ -->
+<div id="qr-modal" class="qr-modal" onclick="if(event.target===this)closeQrModal()">
+  <div class="qr-modal-box">
+    <div class="qr-modal-stripe"></div>
+    <div class="qr-modal-header">
+      <span class="qr-modal-title">💳 QR de Pago</span>
+      <button class="qr-modal-close" onclick="closeQrModal()">✕</button>
+    </div>
+    <div class="qr-modal-body">
+      <div class="qr-img-frame">
+        <img src="imagen%20(15).png" alt="Código QR de pagos - Porra Mundialista 2026">
+      </div>
+      <p class="qr-modal-hint">
+        Escanea este código con tu app bancaria.<br>
+        Luego envía el comprobante por WhatsApp al<br>
+        <strong>322 363 6928</strong>
+      </p>
+    </div>
+    <div class="qr-modal-footer">
+      <button class="qr-close-btn" onclick="closeQrModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 <!-- ══════ MODAL: SCORING / REGLAMENTO ══════ -->
 <div id="scoring-modal" class="scoring-modal" onclick="if(event.target===this)closeScoringModal()">
@@ -1158,6 +1271,26 @@
 </div>
 
 <script>
+  function openQrModal() {
+    var el = document.getElementById('qr-modal');
+    el.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQrModal() {
+    var el = document.getElementById('qr-modal');
+    var box = el.querySelector('.qr-modal-box');
+    if (box) {
+      box.classList.add('closing');
+      setTimeout(function() {
+        el.classList.remove('active');
+        box.classList.remove('closing');
+        document.body.style.overflow = '';
+      }, 200);
+    } else {
+      el.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
   function openScoringModal() {
     document.getElementById('scoring-modal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1192,6 +1325,7 @@
   }
   document.addEventListener('keydown', function(e) {
     if (e.key !== 'Escape') return;
+    closeQrModal();
     closeScoringModal();
     ['modal-premiacion','modal-fases'].forEach(function(id) {
       var el = document.getElementById(id);
@@ -1201,6 +1335,5 @@
 </script>
 </body>
 </html>
-   
    
    
