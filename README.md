@@ -886,7 +886,7 @@
       <span>2026</span>
     </h1>
     <p class="hero-subtitle">El Torneo de Predicciones del Área</p>
-    <p class="hero-tagline">El Mundial se vive en la cancha, pero la estrategia se define en nuestra área. Demuestra tu visión y tu precisión más allá de los procesos diarios. ¿Eres realmente actor del cambio?</p>
+    <p class="hero-tagline">En Operaciones Logísticas Unidad, queremos convertir esta experiencia en una actividad para compartir, disfrutar y fortalecer el trabajo en equipo. Más allá de los resultados, esta es una oportunidad para demostrar tu visión, tu precisión y tu capacidad para anticiparte a cada jugada.</p>
     <div class="hero-cta">
       <button onclick="document.getElementById('requisitos').scrollIntoView({behavior:'smooth'})" class="btn btn-primary">📥 Quiero participar</button>
       <button onclick="document.getElementById('comite').scrollIntoView({behavior:'smooth'})" class="btn btn-outline">Ver el comité</button>
@@ -1078,6 +1078,8 @@
         <div class="sc-example">
           <div class="ex-title">Ej. 1 · Marcador exacto</div>
           <div class="match">🇨🇴 Colombia 2 – 0 Brasil 🇧🇷</div>
+          <div class="ex-title">Ej. 1 · Marcador Pronosticado</div>
+          <div class="match">🇨🇴 Colombia 2 – 0 Brasil 🇧🇷</div>
           <div class="ex-ok">✅ 2 goles Colombia = 2 pts &nbsp;|&nbsp; ✅ 0 goles Brasil = 1 pt</div>
           <div class="ex-total">Total: 3 puntos</div>
         </div>
@@ -1211,7 +1213,7 @@
       <div class="wc-section-label" style="color:rgba(232,0,45,0.75);">⚖️ En caso de empate</div>
       <p style="font-size:0.88rem;color:rgba(240,246,255,0.6);line-height:1.7;margin-bottom:1rem;">Si dos o más participantes empatan en cualquiera de las posiciones premiadas, los involucrados podrán elegir entre:</p>
       <div class="tie-grid">
-        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">Se realizará un sorteo adicional para definir la posición final entre los empatados.</div></div></div>
+        <div class="tie-card"><div class="tie-icon">🎲</div><div><div class="tie-title">Nuevo sorteo</div><div class="tie-text">Se realizará un sorteo para definir a un único ganador dentro de la posición que se encuentra empatada.</div></div></div>
         <div class="tie-card"><div class="tie-icon">🤝</div><div><div class="tie-title">División igualitaria</div><div class="tie-text">El valor del premio correspondiente se divide en partes iguales entre todos los empatados.</div></div></div>
       </div>
     </div>
@@ -1238,6 +1240,7 @@
         <div class="wc-section-label" style="color:#4A90FF;margin-top:0;">📋 Actividades requeridas</div>
         <ul class="phase-list">
           <li><span class="icon">⚽</span><span>Registrar los marcadores de todos los partidos de la fase de grupos.</span></li>
+          <li><span class="icon">⚽</span><span></span>En caso de empate entre equipos, selecciona manualmente las posiciones para definir los clasificados a los dieciseisavos de final. Las opciones aparecerán  automáticamente en el archivo de Excel cuando sean necesarias.</li>
           <li><span class="icon">🥇</span><span>Pronosticar el equipo que será <strong style="color:#F0F6FF">Campeón</strong> del mundial.</span></li>
           <li><span class="icon">🥈</span><span>Pronosticar el equipo que será <strong style="color:#F0F6FF">Subcampeón</strong> del mundial.</span></li>
           <li><span class="icon">🥉</span><span>Pronosticar el equipo que ocupará el <strong style="color:#F0F6FF">tercer lugar</strong> del mundial.</span></li>
